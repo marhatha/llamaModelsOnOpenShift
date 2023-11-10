@@ -23,7 +23,7 @@ def train():
     logger.info("Dataset loaded successfully.")
     
     # Prepare tokenizer
-    tokenizer = AutoTokenizer.from_pretrained("daryl149/llama-2-7b-chat-hf", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/llama-2-7b-chat-hf", trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
     logger.info("Tokenizer prepared successfully.")
 
@@ -36,7 +36,7 @@ def train():
     )
 
     model = AutoModelForCausalLM.from_pretrained(
-        "daryl149/llama-2-7b-chat-hf",
+        "meta-llama/llama-2-7b-chat-hf",
         device_map = {
             "transformer.word_embeddings": "cuda:0", 
             "transformer.word_embeddings_layernorm": "cuda:0",
